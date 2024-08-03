@@ -22,13 +22,19 @@ class TodoList extends Component
         $validated = $this->validateOnly('name');
 
         Todo::create($validated);
+        $this->reset();
         session()->flash('success','Successfully created');
 
     }
+
+    public function delete(Todo $todo){
+        Todo::find($todo->id)->delete();
+    }
+
     public function render()
     {
         return view('livewire.todo-list', [
-            "todos" => Todo::latest()->paginate(5),
+            "todos" => Todo::latest()->where('name', 'like', "%{$this->search}%")->paginate(5),
         ]);
     }
 }
