@@ -20,8 +20,11 @@
             <button wire:click.prevent='create' type="submit"
                 class="px-4 py-2 bg-blue-500 text-white font-semibold rounded hover:bg-blue-600">Create
                 +</button>
+
             @if (session('success'))
-                <span class="text-green-500 text-xs">Saved.</span>
+                <span class="p-4 ml-4 text-xs text-blue-800 rounded-lg bg-blue-50 dark:bg-green-500 dark:text-white"" role="alert">
+                    {{ session('success') }}
+                </span>
             @endif
 
         </form>

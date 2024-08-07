@@ -7,14 +7,19 @@
 
             </div>
         </div>
-        @include('livewire.includes.searchbox-todo)
+        @include('livewire.includes.searchbox-todo')
+
+        {{-- Pagination --}}
+
+        <div class="my-2">
+            {{ $todos->links() }}
+        </div>
+        {{-- Pagination --}}
 
         @foreach ($todos as $todo)
             @include('livewire.includes.todo-card')
         @endforeach
 
-        <div class="my-2">
-            {{ $todos->links() }}
-        </div>
+
     </div>
 </div>

@@ -40,7 +40,5 @@
         </div>
     </div>
 
-    <div class="my-2">
-        {{ $todos->links() }}
-    </div>
+    
 </div>
